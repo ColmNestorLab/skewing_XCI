@@ -1,6 +1,6 @@
 # TRiXi: A Multi-Target Tandem Repeat-Based Method for Accurate Detection of X-Inactivation Skewing in Humans
 
-*Dóra Goldmann<sup>1,2/sup>, Björn Gylemo<sup>1,2</sup>, Maike Bensberg<sup>1,2</sup>, Ingela Johansson<sup>1</sup>, Svenja Löffert<sup>1</sup>, Júlia Goldmann<sup>1</sup>, Lisa Haglund<sup>1</sup>, Magdalena Vitkova<sup>1</sup>, Janos Kondri<sup>1</sup>, Sandra Hellberg<sup>1</sup>, Engla Haglund<sup>1</sup>, Shadi Jafari<sup>1,3</sup>, Johnny Ludvigsson<sup>1,3</sup> & Colm E. Nestor<sup>1,3</sup>*
+*Dóra Goldmann<sup>1,2</sup>, Björn Gylemo<sup>1,2</sup>, Maike Bensberg<sup>1,2</sup>, Ingela Johansson<sup>1</sup>, Svenja Löffert<sup>1</sup>, Júlia Goldmann<sup>1</sup>, Lisa Haglund<sup>1</sup>, Magdalena Vitkova<sup>1</sup>, Janos Kondri<sup>1</sup>, Sandra Hellberg<sup>1</sup>, Engla Haglund<sup>1</sup>, Shadi Jafari<sup>1,3</sup>, Johnny Ludvigsson<sup>1,3</sup> & Colm E. Nestor<sup>1,3</sup>*
 
 <sup>1</sup> Crown Princess Victoria Children´s Hospital, Department of Biomedical and Clinical Sciences (BKV), Linköping University, Linköping, Sweden
 
