@@ -1,12 +1,11 @@
 library(data.table)
 library(tidyverse)
 
+# failed samples
 failed_undigested_samples <- c("316561", "316662", "320484")
 failed_digested_samples <- c("315387", "322792")
 failed_CNKSR2 <- c("317402")
 failed_ARHGAP6 <- c("320615")
-
-
 
 dataz <- fread("data/data_rerun_by_Bjorn/TRiX_data_blue_channel.csv")
 dataz <- dataz %>% tidyr::separate(2, sep = "_", into = c("digest", "sample", "extended_sample"), remove = F)
