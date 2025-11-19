@@ -33,7 +33,7 @@ the initiation of XCI and its underlying genomic elements, (2) previously unreco
 
 *Hardware used AMD Ryzen Threadripper PRO 5995WX 64-Cores, 256 GB of RAM. However, should work on any system with enough RAM to support the in-memory operations in R.*
 
-*To run the code, download the scripts and the required R packages*
+*To run the code, download the scripts and install the required R packages.*
 
 *Data used in this paper includes: WGS data from GTEx to identify suitable X-linked repeats, tables exported from GeneMapper5 (from 3500 Genetic Analyzer runs) and RNA-seq and WES from GTEx.*  
 
