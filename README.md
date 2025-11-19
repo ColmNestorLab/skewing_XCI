@@ -28,8 +28,12 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 the initiation of XCI and its underlying genomic elements, (2) previously unrecognized lethal X-linked traits and (3) improved polygenic risk prediction through incorporation of X-chromosome variation.
 ##
 
-### Session info
+## Instructions
 *Code has been tested on Ubuntu 22.04.5 LTS and R version 4.5.0 (2025-04-11)*
+*To run the code, download the scripts and the required R packages*
+*Data used in this paper includes: WGS data from GTEx to identify suitable X-linked repeats, tables exported from GeneMapper5 (from 3500 Genetic Analyzer runs) and RNA-seq and WES from GTEx.*  
+
+### Session info
 
 | Package | Version | Source |
 | :------ | :------ | :----- |
