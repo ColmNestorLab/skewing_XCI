@@ -8,7 +8,6 @@ dataz$gene <- "LOL"
 dataz[which(dataz$Size > 200 & dataz$Size < 275),]$gene <- "ARHGAP6"
 dataz[which(dataz$Size > 430 & dataz$Size < 520),]$gene <- "RP2"
 
-#data_filt <- dataz[dataz$gene != "LOL" & !dataz$sample %in% c(failed_samples),]
 data_filt <- dataz[dataz$gene != "LOL",]
 
 metadataz <- unique(fread("data/data_rerun_by_Bjorn/miniTRiX_HUMARA_comparison_metadata.csv", header = T)[,c("filename", "date_run")])
