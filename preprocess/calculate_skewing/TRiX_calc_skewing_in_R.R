@@ -11,7 +11,7 @@ dataz[which(dataz$Size > 350 & dataz$Size < 430),]$gene <- "TCAC1"
 dataz[which(dataz$Size > 430 & dataz$Size < 520),]$gene <- "RP2"
 dataz[which(dataz$Size > 520 & dataz$Size < 620),]$gene <- "ZIC3"
 
-data_filt <- dataz[dataz$gene != "LOL" & !dataz$sample %in% failed_undigested_samples & !dataz$sample %in% failed_digested_samples ,]
+data_filt <- dataz[dataz$gene != "LOL",]
 
 metadataz <- unique(fread("data/data_rerun_by_Bjorn/TRiX_metadata.csv", header = T)[,c("filename", "date_run")])
 colnames(metadataz) <- c("Sample File Name", "date_run")
