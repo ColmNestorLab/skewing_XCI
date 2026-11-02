@@ -36,6 +36,6 @@ genes_PCR_prod_plot <-
             TCAC1_PCR_prod_plot,
             ZIC3_PCR_prod_plot)
 
-pdf("/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/01_plots/Figure_1G.pdf", height = 6, width = 24)
+pdf("01_plots/Figure_1G.pdf", height = 6, width = 24)
 genes_PCR_prod_plot
 dev.off()
