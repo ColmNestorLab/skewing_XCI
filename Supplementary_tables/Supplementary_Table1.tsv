@@ -1,0 +1,17 @@
+Table S1: Highly polymorphic tri- and tetra-nucleotide X-linked repeat sequences flanked by 50% methylated HpaII sites tested for suitability in TRiXi 					
+gene	repeat_type	contig	repeat_start	HpaII sites [count]	Heterozygosity [%]
+LINC02931_2 - AAAG1	AAAG	chrX	137554666	1	
+LARP1BP3 - AAC1	AAC	chrX	134197606	2	
+CPXCR1 - AGGA1	AGGA	chrX	88417303	1	
+MIR3937 - AGGA2	AGGA	chrX	39613271	1	
+AR	CAG	chrX	67545318	2	
+TRiXi1	GAG	chrX	11427816	1	80.7
+ARHGEF6	CAG	chrX	136767841	3	
+TRiXi2	CAG	chrX	21374595	3	65.5
+IQSEC2	AGGA	chrX	53279932	1	
+TRiXi3	AAAG	chrX	46836337	1	79.1
+SRPX	GCA	chrX	38220723	5	
+TRiXi4	TCAC	chrX	137545369	2	57.6
+EFNB1 - TTTC2	TTTC	chrX	68903924	1	
+TRiXi5	ATCT	chrX	137568340	3	69.9
+ZNF630	GAAG	chrX	48068167	1	
