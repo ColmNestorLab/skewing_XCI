@@ -34,7 +34,7 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 
 *To run the code, two things are needed*:
 
-*__i)__ Download the scripts and install the required R packages. To install requried packages using __Renv__ (recommended), use the provided renv.lock file. You can also manually install all the requried packages (in that case, see package_versions.tsv for packages and versions). *
+*__i)__ Download the scripts and install the required R packages. To install requried packages using __Renv__ (recommended), use the provided renv.lock file. Easiest is to make an R project and then copy over the lock file to the new R project folder. Make sure to create this folder within the repo structure above. You can also manually install all the requried packages (in that case, see package_versions.tsv for packages and versions). *
 
 *__ii)__ You have to set the path to the __source script (plot_parameters_TRiX.R)__, __Supplementary Tables__ and to the __Source data__ directories in each figure script. Otherwise the data will not load into R. The way the scripts are set up now the easiest way to achieve this is to download this repo and create an R project within a folder on the same level as the above repo (in other words, the R project folder will be an additional folder in the above repo folder structure). If this somehow fails you will have to change the scripts to target the appropriate file path for the data.* 
 
