@@ -8,11 +8,11 @@ library(cowplot)
 library(ggalluvial)
 library(ggrepel)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-df_miniTRiX <- fread("Supplementary_tables/supplementary_table7.tsv")[-c(1),]
-df_TRiX <- fread("Supplementary_tables/supplementary_table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
@@ -49,13 +49,13 @@ stats_TRiXi_data_count <- stats_TRiXi_data %>% dplyr::group_by(`XCI pattern`) %>
 # Export source data
 source_data_a <- stats_TRiXi_data
 source_data_b <- stats_stats_TRiXi_data
-write.table(source_data_a, "source_data/Fig_2A_source_data_a.tsv", quote = F, row.names = F, sep = "\t")
-write.table(source_data_b, "source_data/Fig_2A_source_data_b.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_a, "../source_data/Fig_2A_source_data_a.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_b, "../source_data/Fig_2A_source_data_b.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_a <- fread("source_data/Fig_2A_source_data_a.tsv")
-source_data_b <- fread("source_data/Fig_2A_source_data_b.tsv")
+source_data_a <- fread("../source_data/Fig_2A_source_data_a.tsv")
+source_data_b <- fread("../source_data/Fig_2A_source_data_b.tsv")
 
 # plot skewing
 distribution_of_skewing_per_individual <- 
