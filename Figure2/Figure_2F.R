@@ -1,8 +1,8 @@
 library(QDNAseq)
-library(QDNAseq.hg38) # installed with devtools and their github.
+library(QDNAseq.hg38)
 library(Biobase)
 
-bam_directory <- "low_pass_bams/fastqs"
+bam_directory <- "../datas/low_pass_bams/fastqs"
 bam_files <- list.files(path = bam_directory, pattern = "*.bam$", full.names = TRUE)
 
 ##### 500k bins #####
