@@ -7,11 +7,11 @@ library(rtracklayer)
 library(ggrepel)
 library(ggpubr)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 # Read in ASM and ASE data frames. Make TRiXi data frame.
 # start with ASM.
-suppl_table_4 <- fread("Supplementary_tables/Supplementary_Table4.tsv")
+suppl_table_4 <- fread("../Supplementary_tables/Supplementary_Table4.tsv")
 
 # calculate skewing function
 compute_folded_skew <- function(df) {
@@ -79,10 +79,10 @@ ASM_df <- rbind(ASM_df, temp_df)
 colnames(ASM_df) <- c("P_hat", "value",      "sample")
 
 # make TRiXi df
-trixi_results <- fread("data/revision_new_experiment/TRiXi/method_comparison_samples.tsv")
+trixi_results <- fread("../data/method_comparison_samples.tsv")
 
 # Read in Supplementary Table 5
-ASE_df_filt <- fread("Supplementary_tables/supplementary_table5.tsv")
+ASE_df_filt <- fread("../data/Supplementary_tables/Supplementary_Table5.tsv")
 
 # summarize (essentially calculate skewing per individual (the median is skewing)).
 ASE_df_filt_calc <- ASE_df_filt %>% dplyr::group_by(participant) %>% rstatix::get_summary_stats(scaled, type="common")
@@ -104,10 +104,10 @@ ASM_df$variable <- "ASM"
 combined_df <- rbind(ASM_df[ASM_df$sample %in% c("xxh006", "xxh014", "xxh020", "xxh027", "xxh034", "xxh176"), -1], ASE_df_filt_calc_short, trixi_results)
 
 # export source data
-write.table(combined_df, "source_data/figure_1H_1I.tsv", quote = F, row.names = F, col.names = T, sep = "\t")
+write.table(combined_df, "../source_data/figure_1H_1I.tsv", quote = F, row.names = F, col.names = T, sep = "\t")
 
 # read in source data
-figure_1H_1I_source_data <- fread("source_data/figure_1H_1I.tsv")
+figure_1H_1I_source_data <- fread("../source_data/figure_1H_1I.tsv")
 
 ######## Figure 1H ###########
 ggsave2(filename = "01_plots/Figure_1H.pdf",
