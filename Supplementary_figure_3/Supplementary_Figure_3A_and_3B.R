@@ -13,7 +13,13 @@ library(rtracklayer)
 source("../plot_parameters_TRiX.R")
 
 ############ GTEx ############
-suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")
+suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")[-1,]
+
+colnames(suppl_table_10) <- as.character(suppl_table_10[1,])
+
+suppl_table_10 <- suppl_table_10[-1,]
+
+suppl_table_10$allelic_expression <- as.numeric(suppl_table_10$allelic_expression)
 
 # calculate metrics for plotting.
 plot_metrics <- suppl_table_10 %>% dplyr::group_by(participant, tissue_id) %>% rstatix::get_summary_stats(allelic_expression, type = "common")
