@@ -12,8 +12,8 @@ exon_tibble <- get_exons_hg38()
 mbr <- ModBamResult(
   methy = ModBamFiles(
     samples = c("haplotype1", "haplotype2"),
-    c("../data/320280_BAM/hp1.bam",
-      "../data/320280_BAM/hp2.bam")
+    c("../datas/320280_BAM/hp1.bam",
+      "../datas/320280_BAM/hp2.bam")
   ),
   samples = data.frame(
     sample = c("haplotype1", "haplotype2"),
