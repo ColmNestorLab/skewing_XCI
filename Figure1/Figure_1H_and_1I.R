@@ -79,10 +79,10 @@ ASM_df <- rbind(ASM_df, temp_df)
 colnames(ASM_df) <- c("P_hat", "value",      "sample")
 
 # make TRiXi df
-trixi_results <- fread("../data/method_comparison_samples.tsv")
+trixi_results <- fread("../datas/method_comparison_samples.tsv")
 
 # Read in Supplementary Table 5
-ASE_df_filt <- fread("../data/Supplementary_tables/Supplementary_Table5.tsv")
+ASE_df_filt <- fread("../Supplementary_tables/Supplementary_Table5.tsv")
 
 # summarize (essentially calculate skewing per individual (the median is skewing)).
 ASE_df_filt_calc <- ASE_df_filt %>% dplyr::group_by(participant) %>% rstatix::get_summary_stats(scaled, type="common")
