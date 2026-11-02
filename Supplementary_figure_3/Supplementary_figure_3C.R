@@ -10,10 +10,10 @@ library(ggrepel)
 library(GenomicRanges)
 library(rtracklayer)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ############ GTEx ############
-suppl_table_10 <- fread("Supplementary_tables/supplementary_table10.tsv")
+suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")
 
 # calculate metrics for plotting.
 suppl_table_10_metrics <- suppl_table_10 %>% dplyr::group_by(participant, tissue_id) %>% rstatix::get_summary_stats(allelic_expression, type = "common")
@@ -70,11 +70,11 @@ variation_df <- variation_df %>%
 
 # Export source data
 Sfig_3c <- variation_df
-write.table(Sfig_3c, "source_data/Suppl_fig_3c_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(Sfig_3c, "../source_data/Suppl_fig_3c_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-Sfig_3c <- fread("source_data/Suppl_fig_3c_source_data.tsv")
+Sfig_3c <- fread("../source_data/Suppl_fig_3c_source_data.tsv")
 
 
 # plot
