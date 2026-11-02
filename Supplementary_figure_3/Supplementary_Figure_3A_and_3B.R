@@ -10,10 +10,10 @@ library(ggrepel)
 library(GenomicRanges)
 library(rtracklayer)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ############ GTEx ############
-suppl_table_10 <- fread("Supplementary_tables/supplementary_table10.tsv")
+suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")
 
 # calculate metrics for plotting.
 plot_metrics <- suppl_table_10 %>% dplyr::group_by(participant, tissue_id) %>% rstatix::get_summary_stats(allelic_expression, type = "common")
@@ -27,11 +27,11 @@ skewed_tissue_samples_count <- plot_metrics %>% dplyr::group_by(tissue_id, skewe
 
 # Export source data
 suppl_fig_3A_source_data <- skewed_tissue_samples_count
-write.table(suppl_fig_3A_source_data, "source_data/Suppl_Fig_3A_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(suppl_fig_3A_source_data, "../source_data/Suppl_Fig_3A_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-suppl_fig_3A_source_data <- fread("source_data/Suppl_Fig_3A_source_data.tsv")
+suppl_fig_3A_source_data <- fread("../source_data/Suppl_Fig_3A_source_data.tsv")
 
 # add percentage of total skewed
 skewed_tissue_samples_count_dcast <- dcast(setDT(suppl_fig_3A_source_data), tissue_id ~ skewed, value.var = c("skewed_count"))
@@ -62,11 +62,11 @@ plot_metrics <- plot_metrics[order(plot_metrics$tissue_id),]
 
 # Export source data
 suppl_fig_3B_source_data <- plot_metrics
-write.table(suppl_fig_3B_source_data, "source_data/Suppl_Fig_3B_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(suppl_fig_3B_source_data, "../source_data/Suppl_Fig_3B_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-suppl_fig_3B_source_data <- fread("source_data/Suppl_Fig_3B_source_data.tsv")
+suppl_fig_3B_source_data <- fread("../source_data/Suppl_Fig_3B_source_data.tsv")
 
 bottom_plot <- 
   ggplot(suppl_fig_3B_source_data, 
