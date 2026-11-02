@@ -10,12 +10,12 @@ library(ggrepel)
 library(GenomicRanges)
 library(rtracklayer)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 
 ##### read in data #####
-df_miniTRiX <- fread("Supplementary_tables/supplementary_table7.tsv")[-c(1),]
-df_TRiX <- fread("Supplementary_tables/supplementary_table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
@@ -46,7 +46,7 @@ stats_TRiXi_data[stats_TRiXi_data$mean >= 90,]$'XCI pattern' <- "extremely skewe
 stats_TRiXi_data$'XCI pattern' <- factor(stats_TRiXi_data$'XCI pattern', levels = c("extremely skewed", "skewed", "non-skewed"))
 
 ############ GTEx ############
-suppl_table_10 <- fread("Supplementary_tables/supplementary_table10.tsv")
+suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")
 
 # calculate metrics for plotting.
 suppl_table_10_metrics <- suppl_table_10 %>% dplyr::group_by(participant, tissue_id) %>% rstatix::get_summary_stats(allelic_expression, type = "common")
@@ -57,11 +57,11 @@ stats_suppl_table_10_metrics_order <- suppl_table_10_metrics %>% dplyr::group_by
 
 # Export source data
 source_data_fig_3a <- stats_suppl_table_10_metrics_order
-write.table(source_data_fig_3a, "source_data/Fig_3b_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_3a, "../source_data/Fig_3b_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_fig_3a <- fread("source_data/Fig_3A_source_data.tsv")
+source_data_fig_3a <- fread("../source_data/Fig_3A_source_data.tsv")
 
 # calculate descriptive statistics of descriptive statistics.
 stats_stats_suppl_table_10_metrics_order <- source_data_fig_3a %>% rstatix::get_summary_stats(median, type = "common")
