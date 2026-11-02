@@ -9,11 +9,11 @@ library(ggalluvial)
 library(ggrepel)
 
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-df_miniTRiX <- fread("Supplementary_tables/supplementary_table7.tsv")[-c(1),]
-df_TRiX <- fread("Supplementary_tables/supplementary_table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
@@ -58,7 +58,7 @@ compare_distributions$variable <- gsub("_", "", compare_distributions$variable)
 extremely_skewed_femmes <- compare_distributions[compare_distributions$`XCI pattern`!= "non-skewed",]
 
 # replace names for samples screened
-samples_screened <- fread("anno/samples_screened.tsv", col.names = c("sample", "alias"))
+samples_screened <- fread("../datas/samples_screened.tsv", col.names = c("sample", "alias"))
 samples_screened$sample <- as.character(samples_screened$sample)
 
 # replace names
@@ -68,11 +68,11 @@ extremely_skewed_femmes[!is.na(extremely_skewed_femmes$alias),]$sample <- extrem
 
 # Export source data
 source_data_suppl_fig_2d <- extremely_skewed_femmes[extremely_skewed_femmes$variable != "mean",]
-write.table(source_data_suppl_fig_2d, "source_data/Suppl_Fig_2d_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_suppl_fig_2d, "../source_data/Suppl_Fig_2d_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_suppl_fig_2d <- fread("source_data/Suppl_Fig_2d_source_data.tsv")
+source_data_suppl_fig_2d <- fread("../source_data/Suppl_Fig_2d_source_data.tsv")
 
 sXCI_femme_per_repeat <- 
   plot_grid(rel_widths = c(1,0.5),
