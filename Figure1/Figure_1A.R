@@ -8,20 +8,20 @@ library(cowplot)
 library(Biostrings)
 
 # good to have.
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 # repeat data
-trip_data <- fread("datas/trip_repeats_sequences_to_grep.tsv", 
+trip_data <- fread("../datas/trip_repeats_sequences_to_grep.tsv", 
                    col.names = c("contig", "repeat_start", "repeat_start_20_before_100_after", "repeat_type", "sequence_directly_after_repeat"))
 
-quad_data <- fread("datas/quad_repeats_sequences_to_grep.tsv", 
+quad_data <- fread("../datas/quad_repeats_sequences_to_grep.tsv", 
                    col.names = c("contig", "repeat_start", "repeat_start_20_before_100_after", "repeat_type", "sequence_directly_after_repeat"))
 
 # read in repeat meta
-trip_repeats_meta <- fread("datas/trip_repeats_meta.tsv", 
+trip_repeats_meta <- fread("../datas/trip_repeats_meta.tsv", 
                    col.names = c("contig","repeat_start","repeat_end","repeat_start_minus_300","repeat_end_plus_300"))
 
-quad_repeats_meta <- fread("datas/quad_repeats_meta.tsv", 
+quad_repeats_meta <- fread("../datas/quad_repeats_meta.tsv", 
                            col.names = c("contig","repeat_start","repeat_end","repeat_start_minus_300","repeat_end_plus_300"))
 
 # calculate no. of repeats.
@@ -107,16 +107,16 @@ quad_data[quad_data$repeat_start %in% 137568340,]$closest_gene <- "ZIC3"
 quad_data[quad_data$repeat_start %in% 46836337,]$closest_gene <- "RP2"
 
 # Read in methylation data. Remove positions with a read depth lower than 4.
-df_meth <- fread("datas/50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
-df_unmeth <- fread("datas/not_50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
+df_meth <- fread("../datas/50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
+df_unmeth <- fread("../datas/not_50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
 
 # Merge the methylation data.
 df_smash_meth <- rbind(df_meth, df_unmeth)[methylation_value > 0]
 
 # read in CG and CCGG positions. Keep only 50% methylated CCGG positions.
-df_CG_pos <- fread("datas/CGpos.txt", col.names = c("CG_position"))
-df_CCGG <- fread("datas/CCGGpos.txt", col.names = c("CCGG_position"))
-df_CCGG_pos <- fread("datas/CCGGpos.txt", col.names = c("CCGG_position"))[CCGG_position %in% df_meth$CG_start]
+df_CG_pos <- fread("../datas/CGpos.txt", col.names = c("CG_position"))
+df_CCGG <- fread("../datas/CCGGpos.txt", col.names = c("CCGG_position"))
+df_CCGG_pos <- fread("../datas/CCGGpos.txt", col.names = c("CCGG_position"))[CCGG_position %in% df_meth$CG_start]
 
 
 trip_gr2 <- makeGRangesFromDataFrame(trip_data[trip_data$repeat_start %in% c("11427816", "21374595", "46836337", "137545369", "137568340"),], keep.extra.columns = T, seqnames.field = "contig", start.field="repeat_start_minus_300", end.field = "repeat_end_plus_300")
@@ -137,7 +137,7 @@ selected_repeats <- c("AR","ARHGAP6", "CNKSR2", "RP2", "TCAC1", "ZIC3")
 smash_data <- rbind(trip_data[trip_data$closest_gene %in% selected_repeats,],
                     quad_data[quad_data$closest_gene %in% selected_repeats,])
 
-primer_summary <- fread("/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/data/primers_summary_TRiXi_corrected.tsv")
+primer_summary <- fread("../datas/primers_summary_TRiXi_corrected.tsv")
 
 smash_data_with_primer_summary <- merge(smash_data, primer_summary[,c("gene", "PCR_product_start", "PCR_product_end", "PCR_product_length", "PCR_product_sequence")], by.x = "closest_gene", by.y="gene")
 
@@ -198,16 +198,16 @@ genes <- getBM(attributes = c('chromosome_name', 'start_position', 'end_position
                filters = 'chromosome_name', values = 'X', mart = ensembl)
 
 # Read in methylation data. Remove positions with a read depth lower than 4.
-df_meth <- fread("datas/50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
-df_unmeth <- fread("datas/not_50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
+df_meth <- fread("../datas/50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
+df_unmeth <- fread("../datas/not_50_meth_summarized.sorted.samples.merged.bed", col.names = c("contig", "CG_start", "CG_end", "read_depth", "methylation_value"))[read_depth > 4]
 
 # Merge the methylation data.
 df_smash_meth <- rbind(df_meth, df_unmeth)[methylation_value > 0]
 
 # read in CG and CCGG positions. Keep only 50% methylated CCGG positions.
-df_CG_pos <- fread("datas/CGpos.txt", col.names = c("CG_position"))
-df_CCGG <- fread("datas/CCGGpos.txt", col.names = c("CCGG_position"))
-df_CCGG_pos <- fread("datas/CCGGpos.txt", col.names = c("CCGG_position"))[CCGG_position %in% df_meth$CG_start]
+df_CG_pos <- fread("../datas/CGpos.txt", col.names = c("CG_position"))
+df_CCGG <- fread("../datas/CCGGpos.txt", col.names = c("CCGG_position"))
+df_CCGG_pos <- fread("../datas/CCGGpos.txt", col.names = c("CCGG_position"))[CCGG_position %in% df_meth$CG_start]
 
 # get methylation, add tag whether or not its a CCGG site
 df_smash_meth$CCGG <- ifelse(df_smash_meth$CG_start %in% df_CCGG$CCGG_position, yes = "CCGG", no = "CpG")
@@ -218,9 +218,9 @@ cg_methylation_gr <- makeGRangesFromDataFrame(df_smash_meth[df_smash_meth$CCGG =
 
 #### Read in source data. ####
 # Read in.
-source_data_a <- fread("source_data/Fig_1A_source_data_a.tsv")
-source_data_b <- fread("source_data/Fig_1A_source_data_b.tsv")
-source_data_c <- fread("source_data/Fig_1A_source_data_c.tsv")
+source_data_a <- fread("../source_data/Fig_1A_source_data_a.tsv")
+source_data_b <- fread("../source_data/Fig_1A_source_data_b.tsv")
+source_data_c <- fread("../source_data/Fig_1A_source_data_c.tsv")
 
 
 trip_starts <- source_data_a[source_data_a$repeat_start %in% c("11427816", "21374595", "46836337", "137545369", "137568340"),]$repeat_start
