@@ -10,8 +10,10 @@ library(ggrepel)
 library(GenomicRanges)
 library(rtracklayer)
 
+source("../plot_parameters_TRiX.R")
+
 ############ GTEx ############
-suppl_table_10 <- fread("Supplementary_tables/supplementary_table10.tsv")
+suppl_table_10 <- fread("../Supplementary_tables/Supplementary_Table10.tsv")
 
 # calculate metrics for plotting.
 suppl_table_10_metrics <- suppl_table_10 %>% dplyr::group_by(participant, tissue_id) %>% rstatix::get_summary_stats(allelic_expression, type = "common")
@@ -52,13 +54,11 @@ colnames(large_df_frac_count) <- c("skewed_tissue_count", "count", "frac", "frac
 
 # Export source data
 source_data_fig_3c <- large_df_frac_count
-write.table(source_data_fig_3c, "source_data/Fig_3c_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_3c, "../source_data/Fig_3c_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_fig_3c <- fread("source_data/Fig_3C_source_data.tsv")
-
-source("plot_parameters_TRiX.R")
+source_data_fig_3c <- fread("../source_data/Fig_3C_source_data.tsv")
 
 frequencies_per_skewing_count <-
   ggplot(source_data_fig_3c, 
