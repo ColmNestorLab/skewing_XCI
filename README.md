@@ -34,7 +34,7 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 
 *To run the code, two things are needed*:
 
-*__i)__ Download the scripts and install the required R packages. To install requried packages using Renv (recommended), use the provided renv.lock file. You can also manually install all the requried packages (in that case, see package_versions.tsv for packages and versions).*
+*__i)__ Download the scripts and install the required R packages. To install requried packages using __Renv__ (recommended), use the provided renv.lock file. You can also manually install all the requried packages (in that case, see package_versions.tsv for packages and versions).*
 
 *__ii)__ You have to set the path to the __Supplementary Tables__ and to the __Source data__ directories in each figure script. Otherwise the data will not load into R.* 
 
