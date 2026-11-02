@@ -8,11 +8,11 @@ library(cowplot)
 library(ggalluvial)
 library(ggrepel)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### Figure 2B ####
 # Read in the longitudinal data
-df_miniTRiX_age <- fread("Supplementary_tables/supplementary_table8.tsv")[-1,]
+df_miniTRiX_age <- fread("../Supplementary_tables/Supplementary_Table8.tsv")[-1,]
 
 colnames(df_miniTRiX_age) <- as.character(df_miniTRiX_age[1,])
 df_miniTRiX_age <- df_miniTRiX_age[-1,]
@@ -33,11 +33,11 @@ melt_df_miniTRiX_age$'XCI pattern' <- factor(melt_df_miniTRiX_age$'XCI pattern',
 #### Plot 2B ####
 # Export source data
 source_data_fig_2B <- melt_df_miniTRiX_age
-write.table(source_data_fig_2B, "source_data/Fig_2B_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_2B, "../source_data/Fig_2B_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_fig_2B <- fread("source_data/Fig_2B_source_data.tsv")
+source_data_fig_2B <- fread("../source_data/Fig_2B_source_data.tsv")
 
 # Make order
 ordrrr2 <- source_data_fig_2B[source_data_fig_2B$variable == "mean_skewing_age_0_to_1_year",]
@@ -90,11 +90,11 @@ source_data_fig_2C <- df_Figure_2D
 source_data_fig_2D <- df_Figure_2D[df_Figure_2D$sample_ID %in% large_change,]
 
 # export
-write.table(source_data_fig_2C, "source_data/Fig_2C_source_data.tsv", quote = F, row.names = F, sep = "\t")
-write.table(source_data_fig_2D, "source_data/Fig_2D_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_2C, "../source_data/Fig_2C_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_2D, "../source_data/Fig_2D_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 # Read in.
-source_data_fig_2C <- fread("source_data/Fig_2C_source_data.tsv")
+source_data_fig_2C <- fread("../source_data/Fig_2C_source_data.tsv")
 
 ggsave2(filename = "01_plots/Figure_2C.pdf", height = 4, width = 4,
         ggplot(source_data_fig_2C[source_data_fig_2C$variable == "2",], 
