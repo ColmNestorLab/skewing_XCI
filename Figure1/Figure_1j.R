@@ -14,7 +14,7 @@ write.table(AML_samples, "../source_data/figure_1J.tsv", quote = F, row.names = 
 # read in source data
 figure_1J_source_data <- fread("../source_data/figure_1J.tsv")
 
-ggsave2(filename = "01_plots/AML_samples.pdf",
+ggsave2(filename = "01_plots/Figure_1J.pdf",
 ggplot(figure_1J_source_data, aes(x=variable, y=value)) + 
   geom_bar(stat="identity") + 
   theme_AL_box_rotX() + 
