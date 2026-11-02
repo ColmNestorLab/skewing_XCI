@@ -165,19 +165,3 @@ ggsave2(filename = "01_plots/Figure_1I.pdf",
         plot_grid(p1, p2, p3, ncol = 3)
 )
 
-
-
-# get metrics for method comparisons
-figure_1H_1I_source_data_diff_vs_ASM <- merge(figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "TRiXi",], figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "ASM",], by = "sample")
-figure_1H_1I_source_data_diff_vs_ASM$diff <- abs(figure_1H_1I_source_data_diff_vs_ASM$value.x - figure_1H_1I_source_data_diff_vs_ASM$value.y)
-
-figure_1H_1I_source_data_diff_vs_ASE <- merge(figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "TRiXi",], figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "ASE",], by = "sample")
-figure_1H_1I_source_data_diff_vs_ASE$diff <- abs(figure_1H_1I_source_data_diff_vs_ASE$value.x - figure_1H_1I_source_data_diff_vs_ASE$value.y)
-
-figure_1H_1I_source_data_diff_ASE_vs_ASM <- merge(figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "ASE",], figure_1H_1I_source_data[figure_1H_1I_source_data$variable == "ASM",], by = "sample")
-figure_1H_1I_source_data_diff_ASE_vs_ASM$diff <- abs(figure_1H_1I_source_data_diff_ASE_vs_ASM$value.x - figure_1H_1I_source_data_diff_ASE_vs_ASM$value.y)
-
-mean(figure_1H_1I_source_data_diff_vs_ASM$diff)
-mean(figure_1H_1I_source_data_diff_vs_ASE$diff)
-mean(figure_1H_1I_source_data_diff_ASE_vs_ASM$diff)
-
