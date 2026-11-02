@@ -7,7 +7,7 @@ library(tidyverse)
 library(karyoploteR)
 
 # good to have.
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 result_df_trip <- fread("../datas/result_df_trip.tsv")
 result_df_quad <- fread("../datas/result_df_quad.tsv")
@@ -36,7 +36,7 @@ smash_allez_selected$name_short <- gsub(smash_allez_selected$name_short, pattern
 
 # Export source data
 source_data <- smash_allez[smash_allez$closest_gene %in% selected_repeats,c("num_repeats", "tag", "closest_gene")]
-write.table(source_data, "source_data/Fig_1B_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data, "../source_data/Fig_1B_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
@@ -45,7 +45,7 @@ source_data <- fread("../source_data/Fig_1B_source_data.tsv")
 selected_repeats <- c("AR", "ARHGAP6", "CNKSR2", "RP2", "TCAC1", "ZIC3", "ATXN7", "HTT", "RPL14")
 
 # Plot
-pdf("/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/01_plots/Fig_1B.pdf", height = 10, width = 12)
+pdf("01_plots/Fig_1B.pdf", height = 10, width = 12)
 ggplot(source_data, 
        aes(x=num_repeats, fill = closest_gene%in%selected_repeats)) + 
   geom_histogram(binwidth = 1) + 
