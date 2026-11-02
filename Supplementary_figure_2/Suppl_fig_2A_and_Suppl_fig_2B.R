@@ -93,7 +93,7 @@ df_heterozygous_fin$variable <- gsub(df_heterozygous_fin$variable, pattern = "_s
 
 # Export source data
 source_data_suppl_fig_2a <- df_heterozygous_fin[df_heterozygous_fin$variable != "mean", c("variable", "n", "total_count", "frac")]
-write.table(source_data_suppl_fig_2a, "source_data/Suppl_Fig_2A_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_suppl_fig_2a, "../source_data/Suppl_Fig_2A_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
