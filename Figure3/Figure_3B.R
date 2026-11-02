@@ -91,7 +91,7 @@ write.table(source_data_fig_3b, "../source_data/Fig_3B_source_data.tsv", quote =
 
 #### Read in source data. ####
 # Read in.
-source_data_fig_3b <- fread("../source_data/Fig_3b_source_data.tsv")
+source_data_fig_3b <- fread("../source_data/Fig_3B_source_data.tsv")
 
 # calculate fraction skewed (to add to plot later)
 fin_scaled_count_tmp <- source_data_fig_3b %>% dplyr::group_by(variable, skewed) %>% dplyr::count()
