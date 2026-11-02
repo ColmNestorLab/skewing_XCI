@@ -1,8 +1,8 @@
 library(rtracklayer)
 library(GenomicRanges)
 
-# directory containing .bw files
-bw_dir <- "/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/data/Kaplan_2023_female_blood_cell_samples"
+# directory containing .bw files. __These files are too big to upload to GitHub but can easily be downloaded from: https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE186458 __
+bw_dir <- "../datas/Kaplan_2023/bws"
 
 # list all bigwig files
 bw_files <- list.files(bw_dir, pattern="\\.bigwig$", full.names=TRUE)
@@ -54,7 +54,7 @@ df$GSM[has_full] <- sub("^(GSM[0-9]+)_.*$", "\\1", df$file[has_full])
 # ZID (works for both -Z and _Z)
 df$ZID[has_full] <- sub("^.*[-_](Z[0-9A-Z]+)$", "\\1", df$file[has_full])
 
-# tissue (core fix here)
+# tissue
 df$tissue[has_full] <- sub("^GSM[0-9]+_(.*)[-_]Z[0-9A-Z]+$", "\\1", df$file[has_full])
 
 # normalize
@@ -77,7 +77,7 @@ df <- rbind(df, df_WBC)
 
 library(tidyverse)
 
-file <- "/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/data/Kaplan_2023_female_blood_cell_samples/GSE186458_series_matrix.txt"
+file <- "../datas/Kaplan_2023/GSE186458_series_matrix.txt"
 
 lines <- readLines(file)
 
@@ -91,7 +91,7 @@ meta_df <- do.call(rbind, lapply(meta_split, function(x) {
   x
 })) %>% as.data.frame(stringsAsFactors = FALSE)
 
-# ---- CLEAN + TRANSPOSE (NO dplyr magic) ----
+# make mat
 mat <- as.matrix(meta_df)
 
 rownames(mat) <- make.unique(mat[,1])   # use first column as rownames
@@ -99,10 +99,10 @@ mat <- mat[,-1]                         # remove first column
 
 meta_t <- as.data.frame(t(mat), stringsAsFactors = FALSE)
 
-# ---- ADD SAMPLE ID ----
+# sample id
 meta_t$sample <- meta_t$`!Sample_geo_accession`
 
-# ---- CLEAN CHARACTERISTICS ----
+# clean
 char_cols <- grep("^!Sample_characteristics", colnames(meta_t), value = TRUE)
 
 meta_char <- meta_t %>%
@@ -115,12 +115,12 @@ meta_char <- meta_t %>%
   distinct() %>%
   pivot_wider(names_from = key, values_from = value)
 
-# ---- FINAL TABLE ----
+# final
 meta_clean <- meta_t %>%
   select(-all_of(char_cols)) %>%
   left_join(meta_char, by = "sample")
 
-# ---- CLEAN NAMES ----
+# clean up
 colnames(meta_clean) <- gsub("^!Sample_", "", colnames(meta_clean))
 
 meta_clean[] <- lapply(meta_clean, function(x) {
@@ -132,8 +132,8 @@ meta_clean_short <- unique(meta_clean[,c("sample", "title", "geo_accession", "so
 meta_clean_short$ZID <- sub("^.*[-_](Z[0-9A-Z]+)$", "\\1", meta_clean_short$title)
 
 # make sure we only have female samples
-meta_WBC <- fread("data/Kaplan_2023_female_blood_cell_samples/female_WBC_meta.txt")
-meta_other_tissues <- fread("data/Kaplan_2023_female_blood_cell_samples/samples.tsv")
+meta_WBC <- fread("../datas/Kaplan_2023/female_WBC_meta.txt")
+meta_other_tissues <- fread("../data/Kaplan_2023/samples.tsv")
 
 meta_WBC <- meta_WBC %>% tidyr::separate(V1, into = "ZID", sep = "_")
 meta_other_tissues <- meta_other_tissues %>% tidyr::separate(alias, into = "ZID", sep = "_")
@@ -168,10 +168,10 @@ df_meta_stats$blood_cells_or_no <- ifelse(df_meta_stats$tissue %in% blood_cells,
 df_meta_stats <- df_meta_stats[df_meta_stats$type == "CCGG",]
 
 # save table
-write.table(df_meta_stats, "source_data/Suppl_Fig_1B_source_data.tsv", quote = F, row.names = F, col.names = T, sep = "\t")
+write.table(df_meta_stats, "../source_data/Suppl_Fig_1B_source_data.tsv", quote = F, row.names = F, col.names = T, sep = "\t")
 
 # read in source data
-Suppl_Fig_1B_source_data <- fread("source_data/Suppl_Fig_1B_source_data.tsv")
+Suppl_Fig_1B_source_data <- fread("../source_data/Suppl_Fig_1B_source_data.tsv")
 
 pdf("01_plots/Suppl_fig_1B.pdf", width = 12, height = 6)
 
