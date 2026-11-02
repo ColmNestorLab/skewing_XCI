@@ -61,7 +61,7 @@ colnames(large_df_frac_count) <- c("skewed_tissue_count", "count", "frac", "frac
 
 # Export source data
 source_data_fig_3c <- large_df_frac_count
-write.table(source_data_fig_3c, "../source_data/Fig_3c_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_3c, "../source_data/Fig_3C_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
@@ -81,12 +81,3 @@ frequencies_per_skewing_count <-
 ggsave2(filename = "01_plots/Figure_3c.pdf", width = 8, height = 4,
         plot_grid(frequencies_per_skewing_count))
 
-# how many females have one, two and three or more skewed tissues?
-paste0("total = ", sum(source_data_fig_3c$count))
-paste0("1 or more skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 1,]$count))
-paste0("2 or more  skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 2,]$count))
-paste0("3 or more  skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 3,]$count))
-
-paste0("4 or more  skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 4,]$count))
-paste0("5 or more  skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 5,]$count))
-paste0("10 or more  skewed tissue = ", sum(source_data_fig_3c[source_data_fig_3c$skewed_tissue_count >= 10,]$count))
