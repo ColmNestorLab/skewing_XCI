@@ -8,10 +8,10 @@ library(cowplot)
 library(ggalluvial)
 library(ggrepel)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-repeat_df <- fread("data/repeats_length_data_revision.tsv")
+repeat_df <- fread("../data/repeats_length_data_revision.tsv")
 
 # set colnames
 melt_repeat_df <- melt(data.table(repeat_df), id.vars = c("sample"), measure.vars = c("TRiXi1_allele1", "TRiXi1_allele2" ,"TRiXi2_allele1" ,"TRiXi2_allele2" ,"TRiXi3_allele1", "TRiXi3_allele2", "TRiXi4_allele1", "TRiXi4_allele2",  "TRiXi5_allele1", "TRiXi5_allele2"))
@@ -21,8 +21,8 @@ melt_repeat_df$sample <- as.character(melt_repeat_df$sample)
 
 
 ##### read in data #####
-df_miniTRiX <- fread("Supplementary_tables/supplementary_table7.tsv")[-c(1),]
-df_TRiX <- fread("Supplementary_tables/supplementary_table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
@@ -59,11 +59,11 @@ repeat_df_smash$variable <- str_sub(repeat_df_smash$variable, end = -9)
 # Export source data
 # remove sample column
 source_data_fig_2c <- repeat_df_smash[,-1]
-write.table(source_data_fig_2c, "source_data/Suppl_Fig_2c_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_fig_2c, "../source_data/Suppl_Fig_2c_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_fig_2c <- fread("source_data/Suppl_Fig_2c_source_data.tsv")
+source_data_fig_2c <- fread("../source_data/Suppl_Fig_2c_source_data.tsv")
 
 source_data_fig_2c$value <- as.numeric(source_data_fig_2c$value)
 
