@@ -31,10 +31,15 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 ##
 
 ## Instructions
+
+*To run the code, two things are needed*:
+
+*__i)__ Download the scripts and install the required R packages. To install requried packages using Renv (recommended), use the provided renv.lock file. You can also manually install all the requried packages (in that case, see package_versions.tsv for packages and versions).*
+
+*__ii)__ You have to set the path to the __Supplementary Tables__ and to the __Source data__ directories in each figure script. Otherwise the data will not load into R.* 
+
 *Code has been tested on Ubuntu 22.04.5 LTS and R version 4.6.1 (2026-06-24)*
 
 *Hardware used AMD Ryzen Threadripper PRO 5995WX 64-Cores, 256 GB of RAM. However, should work on any system with enough RAM to support the in-memory operations in R.*
-
-*To run the code, download the scripts and install the required R packages. See package_versions.tsv for packages and package version or use the renv.lock file.*
 
 *Data used in this paper includes: WGS data from GTEx to identify suitable X-linked repeats, tables exported from GeneMapper5 (from 3500 Genetic Analyzer runs), RNA-seq and WES from GTEx, long-read WGS (ONT), direct RNA-seq data, TRiXi results.*  
