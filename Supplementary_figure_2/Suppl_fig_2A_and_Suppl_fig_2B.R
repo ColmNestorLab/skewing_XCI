@@ -8,11 +8,11 @@ library(cowplot)
 library(ggalluvial)
 library(ggrepel)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-df_miniTRiX <- fread("Supplementary_tables/supplementary_table7.tsv")[-c(1),]
-df_TRiX <- fread("Supplementary_tables/supplementary_table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
@@ -51,11 +51,11 @@ compare_distributions$variable <- gsub("_", "", compare_distributions$variable)
 
 # Export source data
 source_data_suppl_fig_2B <- compare_distributions[which(!is.na(compare_distributions$value)),]
-write.table(source_data_suppl_fig_2B, "source_data/Suppl_Fig_2B_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_suppl_fig_2B, "../source_data/Suppl_Fig_2B_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data_suppl_fig_2b <- fread("source_data/Suppl_Fig_2B_source_data.tsv")
+source_data_suppl_fig_2b <- fread("../source_data/Suppl_Fig_2B_source_data.tsv")
 
 # plot the distribution of skewing per repeat, split on XCI pattern.
 suppl_fig_2b <-
@@ -97,7 +97,7 @@ write.table(source_data_suppl_fig_2a, "source_data/Suppl_Fig_2A_source_data.tsv"
 
 #### Read in source data. ####
 # Read in.
-source_data_suppl_fig_2a <- fread("source_data/Suppl_Fig_2A_source_data.tsv")
+source_data_suppl_fig_2a <- fread("../source_data/Suppl_Fig_2A_source_data.tsv")
 
 # plot
 ggsave2(filename = "01_plots/Suppl_fig_2a.pdf",
