@@ -9,9 +9,9 @@ library(karyoploteR)
 # good to have.
 source("plot_parameters_TRiX.R")
 
-result_df_trip <- fread("datas/result_df_trip.tsv")
-result_df_quad <- fread("datas/result_df_quad.tsv")
-result_df_auto <- fread("datas/result_df_auto.tsv")
+result_df_trip <- fread("../datas/result_df_trip.tsv")
+result_df_quad <- fread("../datas/result_df_quad.tsv")
+result_df_auto <- fread("../datas/result_df_auto.tsv")
 
 # Require at least 6 repeats.
 trip_smash <- result_df_trip[result_df_trip$num_repeats > 6,]
@@ -40,7 +40,7 @@ write.table(source_data, "source_data/Fig_1B_source_data.tsv", quote = F, row.na
 
 #### Read in source data. ####
 # Read in.
-source_data <- fread("source_data/Fig_1B_source_data.tsv")
+source_data <- fread("../source_data/Fig_1B_source_data.tsv")
 
 selected_repeats <- c("AR", "ARHGAP6", "CNKSR2", "RP2", "TCAC1", "ZIC3", "ATXN7", "HTT", "RPL14")
 
