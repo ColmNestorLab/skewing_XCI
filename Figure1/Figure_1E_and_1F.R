@@ -8,10 +8,10 @@ library(cowplot)
 library(ggalluvial)
 library(ggrepel)
 
-source("plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-supplementary_table3 <- fread("Supplementary_tables/supplementary_table3.tsv")[-c(1:2),]
+supplementary_table3 <- fread("../Supplementary_tables/Supplementary_Table3.tsv")[-c(1:2),]
 colnames(supplementary_table3) <- c("sample", "TRiXi_mean_skewing", "ARHGAP6_skewing", "CNKSR2_skewing", "TCAC1_skewing", "RP2_skewing", "ZIC3_skewing", "AR_skewing")
 
 
@@ -38,11 +38,11 @@ df_wide <- humara_comparison[,c("sample", "skewing",   "method")] %>%  pivot_wid
 
 # Export source data
 source_data <- df_wide
-write.table(source_data, "source_data/Fig_1E_and_Fig_1F_source_data.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data, "../source_data/Fig_1E_and_Fig_1F_source_data.tsv", quote = F, row.names = F, sep = "\t")
 
 #### Read in source data. ####
 # Read in.
-source_data <- fread("source_data/Fig_1E_and_Fig_1F_source_data.tsv")
+source_data <- fread("../source_data/Fig_1E_and_Fig_1F_source_data.tsv")
 
 source_data$HUMARA <- as.numeric(source_data$HUMARA)
 source_data$TRiX <- as.numeric(source_data$TRiX)
