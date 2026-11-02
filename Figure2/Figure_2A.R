@@ -11,8 +11,8 @@ library(ggrepel)
 source("../plot_parameters_TRiX.R")
 
 ##### read in data #####
-df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")[-c(1),]
-df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")[-c(1),]
+df_miniTRiX <- fread("../Supplementary_tables/Supplementary_Table7.tsv")
+df_TRiX <- fread("../Supplementary_tables/Supplementary_Table6.tsv")
 
 colnames(df_miniTRiX) <- as.character(df_miniTRiX[1,])
 colnames(df_TRiX) <- as.character(df_TRiX[1,])
