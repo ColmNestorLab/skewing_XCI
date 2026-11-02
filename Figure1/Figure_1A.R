@@ -181,9 +181,9 @@ source_data_a <- trip_data
 source_data_b <- smash_data_with_primer_summary
 source_data_c <- quad_data
 
-write.table(source_data_a, "source_data/Fig_1A_source_data_a.tsv", quote = F, row.names = F, sep = "\t")
-write.table(source_data_b, "source_data/Fig_1A_source_data_b.tsv", quote = F, row.names = F, sep = "\t")
-write.table(source_data_c, "source_data/Fig_1A_source_data_c.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_a, "../source_data/Fig_1A_source_data_a.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_b, "../source_data/Fig_1A_source_data_b.tsv", quote = F, row.names = F, sep = "\t")
+write.table(source_data_c, "../source_data/Fig_1A_source_data_c.tsv", quote = F, row.names = F, sep = "\t")
 
 
 
