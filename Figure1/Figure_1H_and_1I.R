@@ -11,7 +11,16 @@ source("../plot_parameters_TRiX.R")
 
 # Read in ASM and ASE data frames. Make TRiXi data frame.
 # start with ASM.
-suppl_table_4 <- fread("../Supplementary_tables/Supplementary_Table4.tsv")
+suppl_table_4 <- fread("../Supplementary_tables/Supplementary_Table4.tsv")[-c(1),]
+
+colnames(suppl_table_4) <- as.character(suppl_table_4[1,])
+suppl_table_4 <- suppl_table_4[-1,]
+
+suppl_table_4$H1_Xa <- as.numeric(suppl_table_4$H1_Xa)
+suppl_table_4$H2_Xa <- as.numeric(suppl_table_4$H2_Xa)
+suppl_table_4$H1_Xi <- as.numeric(suppl_table_4$H1_Xi)
+suppl_table_4$H2_Xi <- as.numeric(suppl_table_4$H2_Xi)
+
 
 # calculate skewing function
 compute_folded_skew <- function(df) {
@@ -82,7 +91,12 @@ colnames(ASM_df) <- c("P_hat", "value",      "sample")
 trixi_results <- fread("../datas/method_comparison_samples.tsv")
 
 # Read in Supplementary Table 5
-ASE_df_filt <- fread("../Supplementary_tables/Supplementary_Table5.tsv")
+ASE_df_filt <- fread("../Supplementary_tables/Supplementary_Table5.tsv")[-c(1),]
+
+colnames(ASE_df_filt) <- as.character(ASE_df_filt[1,])
+ASE_df_filt <- ASE_df_filt[-1,]
+
+ASE_df_filt$scaled <- as.numeric(ASE_df_filt$scaled)
 
 # summarize (essentially calculate skewing per individual (the median is skewing)).
 ASE_df_filt_calc <- ASE_df_filt %>% dplyr::group_by(participant) %>% rstatix::get_summary_stats(scaled, type="common")
@@ -166,5 +180,4 @@ figure_1H_1I_source_data_diff_ASE_vs_ASM$diff <- abs(figure_1H_1I_source_data_di
 mean(figure_1H_1I_source_data_diff_vs_ASM$diff)
 mean(figure_1H_1I_source_data_diff_vs_ASE$diff)
 mean(figure_1H_1I_source_data_diff_ASE_vs_ASM$diff)
-
 
