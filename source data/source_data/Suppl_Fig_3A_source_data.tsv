@@ -1,0 +1,91 @@
+tissue_id	skewed	skewed_count
+adipose-1	not_skewed	147
+adipose-1	skewed	35
+adipose-2	not_skewed	133
+adipose-2	skewed	25
+adrenal gland	not_skewed	49
+adrenal gland	skewed	32
+artery-1	not_skewed	101
+artery-1	skewed	25
+artery-2	not_skewed	60
+artery-2	skewed	14
+artery-3	not_skewed	146
+artery-3	skewed	26
+brain-1	not_skewed	22
+brain-1	skewed	7
+brain-10	not_skewed	34
+brain-10	skewed	11
+brain-11	not_skewed	26
+brain-11	skewed	5
+brain-12	not_skewed	29
+brain-12	skewed	9
+brain-13	not_skewed	20
+brain-13	skewed	3
+brain-2	not_skewed	32
+brain-2	skewed	2
+brain-3	not_skewed	36
+brain-3	skewed	12
+brain-4	not_skewed	36
+brain-4	skewed	10
+brain-5	not_skewed	46
+brain-5	skewed	12
+brain-6	not_skewed	50
+brain-6	skewed	6
+brain-7	not_skewed	32
+brain-7	skewed	5
+brain-8	not_skewed	27
+brain-8	skewed	7
+brain-9	not_skewed	26
+brain-9	skewed	8
+breast	not_skewed	100
+breast	skewed	42
+colon-1	not_skewed	105
+colon-1	skewed	16
+colon-2	not_skewed	92
+colon-2	skewed	30
+esophagus-1	not_skewed	100
+esophagus-1	skewed	15
+esophagus-2	not_skewed	122
+esophagus-2	skewed	43
+esophagus-3	not_skewed	124
+esophagus-3	skewed	22
+heart-1	not_skewed	102
+heart-1	skewed	23
+heart-2	not_skewed	83
+heart-2	skewed	29
+kidney	not_skewed	11
+kidney	skewed	5
+liver	not_skewed	28
+liver	skewed	19
+lung	not_skewed	112
+lung	skewed	30
+muscle	not_skewed	173
+muscle	skewed	48
+nerve	not_skewed	136
+nerve	skewed	28
+ovary	not_skewed	106
+ovary	skewed	41
+pancreas	not_skewed	67
+pancreas	skewed	40
+pituitary	not_skewed	49
+pituitary	skewed	11
+salivary gland	not_skewed	33
+salivary gland	skewed	12
+skin-1	not_skewed	133
+skin-1	skewed	49
+skin-2	not_skewed	138
+skin-2	skewed	60
+small intestine	not_skewed	50
+small intestine	skewed	14
+spleen	not_skewed	65
+spleen	skewed	14
+stomach	not_skewed	76
+stomach	skewed	33
+thyroid	not_skewed	143
+thyroid	skewed	36
+uterus	not_skewed	86
+uterus	skewed	27
+vagina	not_skewed	95
+vagina	skewed	35
+whole blood	not_skewed	126
+whole blood	skewed	88
