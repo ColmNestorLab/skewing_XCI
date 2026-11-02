@@ -111,7 +111,7 @@ ggsave2(filename = "01_plots/Figure_2C.pdf", height = 4, width = 4,
 )
 
 # Read in.
-source_data_fig_2D <- fread("source_data/Fig_2D_source_data.tsv")
+source_data_fig_2D <- fread("../source_data/Fig_2D_source_data.tsv")
 
 # Set order
 HM_order <- unique(c(c(1022, 1081, 229, 1676, 864, 4308, 212, 315, 511, 1061, 5786), 
