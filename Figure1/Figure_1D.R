@@ -2,10 +2,10 @@ library(seqinr)
 library(ggplot2)
 library(tidyverse)
 
-source("/home/bjogy93/Desktop/TREX_proj/TREX_R_remotes/plot_parameters_TRiX.R")
+source("../plot_parameters_TRiX.R")
 
 #### Make electropherograms ####
-fsa_directory <- "datas/"
+fsa_directory <- "../datas/"
 fsa_files <- list.files(path = fsa_directory, pattern = "*.fsa$", full.names = TRUE)
 
 read_fsa_to_df <- function(file) {
