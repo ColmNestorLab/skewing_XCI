@@ -4,7 +4,7 @@ library(ggplot2)
 
 source("../plot_parameters_TRiX.R")
 
-AML_samples <- melt(fread("../data/AML_samples_TRiXi.tsv"), id.vars = "sample", measure.vars = c("TRiXi1", "TRiXi2", "TRiXi3", "TRiXi4", "TRiXi5"))
+AML_samples <- melt(fread("../datas/AML_samples_TRiXi.tsv"), id.vars = "sample", measure.vars = c("TRiXi1", "TRiXi2", "TRiXi3", "TRiXi4", "TRiXi5"))
 
 AML_samples$value <- as.numeric(AML_samples$value) 
 
