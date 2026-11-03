@@ -49,7 +49,8 @@ If you have **any** questions about the code, feel free to contact me @ bjorn.gy
 
 ## Notes on hardware and operative system support
 Hardware used AMD Ryzen Threadripper PRO 5995WX 64-Cores, 256 GB of RAM. However, should work on any system with enough RAM to support the in-memory operations in R.
-Code has been tested on Ubuntu 22.04.5 LTS, and as such the code is only supported for Ubuntu.
+
+Code has been tested on Ubuntu 22.04.5 LTS and Ubuntu 24.04.4 LTS. As such, the code is only supported for Ubuntu.
 
 ## Notes on R version
 The version of R that is used with this code is: R version 4.6.1 (2026-06-24). That specific version of R can be installed on Ubuntu following the guides linked below:
