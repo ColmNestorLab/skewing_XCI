@@ -47,8 +47,16 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 
 If you have **any** questions about the code, feel free to contact me @ bjorn.gylemo at liu dot se (or bjorn.gylemo at gmail dot com)
 
-## Hardware, operative system support and additional information
+## Notes on hardware and operative system support
 Hardware used AMD Ryzen Threadripper PRO 5995WX 64-Cores, 256 GB of RAM. However, should work on any system with enough RAM to support the in-memory operations in R.
-Code has been tested on Ubuntu 22.04.5 LTS and R version 4.6.1 (2026-06-24). The code has only been tested thoroughly on Ubuntu, and as such the code is only supported for Ubuntu.
+Code has been tested on Ubuntu 22.04.5 LTS, and as such the code is only supported for Ubuntu.
 
+## Notes on R version
+The version of R that is used with this code is: R version 4.6.1 (2026-06-24). That specific version of R can be installed on Ubuntu following the guides linked below:
+
+https://docs.posit.co/resources/install-r-source.html
+
+https://support.posit.co/hc/en-us/articles/200486138-Changing-R-versions-for-the-RStudio-Desktop-IDE
+
+ ## Additional information
 Data used in this paper includes: WGS data from GTEx to identify suitable X-linked repeats, tables exported from GeneMapper5 (from 3500 Genetic Analyzer runs), RNA-seq and WES from GTEx, long-read WGS (ONT), direct RNA-seq data, TRiXi results.
