@@ -42,7 +42,7 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 >3) You can then run the scripts, given that your working directory it set to the R project folder.
 
 ### The alternative path (not recommended):    
->1) Download the scripts and install the required R packages manually, see package_versions.tsv for packages and versions. *
+>1) Download the scripts and install the required R packages manually, see __package_versions.tsv__ for packages and versions. 
 >2) Set the path to the __source script (plot_parameters_TRiX.R)__, __Supplementary Tables__ and to the __Source data__ directories in each R figure script. 
 
 If you have **any** questions about the code, feel free to contact me @ bjorn.gylemo at liu dot se (or bjorn.gylemo at gmail dot com)
