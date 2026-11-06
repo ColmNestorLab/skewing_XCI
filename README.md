@@ -37,7 +37,7 @@ TRiXi provides a convenient and accessible approach to inform diagnosis of X-lin
 *To run the code, you can follow two paths:* 
 
 ### The recommended path:
->1) First, set up an R project within the repo file structure. This is requried for the scripts to run properly later, as it allows a relative working directory.
+>1) First, set up an R project within the repo file structure. This is required for the scripts to run properly later, as it allows a relative working directory.
 >2) Install the required packages using Renv and the provided lock file. When creating the R project make sure to check "Use renv with this project". You can then copy over the provided lock file to your created R project folder and use renv::init() to restore the project from the lockfile.
 >3) You can then run the scripts, given that your working directory it set to the R project folder.
 
